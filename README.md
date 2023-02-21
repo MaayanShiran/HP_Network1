@@ -26,7 +26,7 @@ for another apponent. When user selects one of the "rooms" - it will start an on
 <img src="https://user-images.githubusercontent.com/95546841/220476046-31fc04f5-a825-4ae2-acd1-395b82f05341.jpeg" width="300">
 
 ##### DUELLING WAITING ROOM PAGE:
-<img src=""https://user-images.githubusercontent.com/95546841/220476260-f20e3e37-11cf-4198-b161-dbeb197942a2.jpeg width="300">
+<img src=""https://user-images.githubusercontent.com/95546841/220476260-f20e3e37-11cf-4198-b161-dbeb197942a2.jpeg" width="300">
 
 
 ##### AUTHENTICATION DEMONSTRATION:<br />
