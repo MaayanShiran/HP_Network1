@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    android:background="@drawable/great_hall"
+    android:orientation="vertical"
+    >
+    <Button
+        android:id="@+id/BTN_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="back"
+        android:textColor="#1A1131"
+        android:backgroundTint="#DAC274"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
+        >
+
+    </Button>
+
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        >
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    >
+
+    <ImageView
+        android:id="@+id/rav_BNR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rav_flag"
+        android:layout_weight="1"
+        >
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/rev_LBL_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="0000"
+        android:textColor="@color/white"
+        android:textSize="30sp">
+
+    </TextView>
+</RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
+
+            <ImageView
+                android:id="@+id/huf_BNR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/huf_flag"
+                android:layout_weight="1"
+                >
+
+            </ImageView>
+
+            <TextView
+                android:id="@+id/huf_LBL_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="0000"
+                android:textColor="@color/white"
+                android:textSize="30sp">
+
+            </TextView>
+        </RelativeLayout>
+      <RelativeLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          >
+          <ImageView
+              android:id="@+id/gry_BNR"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/gry_flag"
+              android:layout_weight="1"
+              >
+
+          </ImageView>
+
+
+          <TextView
+              android:id="@+id/gry_LBL_score"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerInParent="true"
+              android:text="0000"
+              android:textColor="@color/white"
+              android:textSize="30sp">
+
+          </TextView>
+      </RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    >
+
+    <ImageView
+        android:id="@+id/sly_BNR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sly_flag"
+        android:layout_weight="1"
+        >
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/sly_LBL_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="0000"
+        android:textColor="@color/white"
+        android:textSize="30sp">
+
+    </TextView>
+
+</RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

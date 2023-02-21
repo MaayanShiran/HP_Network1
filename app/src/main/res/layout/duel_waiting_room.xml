@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    android:background="#1A1131"
+
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:layout_width="450dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="50dp"
+            android:layout_marginBottom="100dp"
+            >
+            <TextView
+                android:id="@+id/join_LBL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Join"
+                android:textSize="30sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"                >
+
+            </TextView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_duels"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/text_LBL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="50dp"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:text="Start exploring duelling"
+            >
+
+        </TextView>
+
+
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_below="@id/text_LBL"
+            android:layout_centerInParent="true"
+            android:backgroundTint="#1A1131"
+            android:fadingEdge="horizontal"
+            android:fitsSystemWindows="true"
+            android:foregroundTint="#1A1131"
+            android:outlineAmbientShadowColor="#1A1131"
+            android:outlineSpotShadowColor="#1A1131"
+
+            android:src="@drawable/loading_9"
+            android:visibility="visible">
+
+        </pl.droidsonroids.gif.GifImageView>
+
+        <ImageView
+            android:id="@+id/BLOCK"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/text_LBL"
+            android:layout_centerInParent="true"
+            android:background="#1A1131"
+            android:visibility="visible">
+
+        </ImageView>
+
+        <Button
+            android:id="@+id/BTN_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="back"
+            android:textColor="#1A1131"
+            android:backgroundTint="#DAC274"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="90dp"
+            >
+
+        </Button>
+    </RelativeLayout>
+
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/new_duel_BTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="New Duel  +"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="130dp"
+        >
+
+    </TextView>
+
+</RelativeLayout>

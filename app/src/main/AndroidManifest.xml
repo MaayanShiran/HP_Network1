@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher1"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher1_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HP_Network"
+        tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCvxD3avEAX9HehuBFt7yNkex4l3PJ9RG8"
+            />
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Inventory"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            >
+
+        </activity>
+        <activity
+            android:name=".Highscores"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            >
+
+        </activity>
+        <activity
+            android:name=".PlayerMain"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            >
+
+        </activity>
+        <activity
+            android:name=".DuelWaitingRoom"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            >
+
+        </activity>
+        <activity
+            android:name=".DuelActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            >
+
+        </activity>
+    </application>
+
+</manifest>

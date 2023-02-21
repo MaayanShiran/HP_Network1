@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "277094612745",
+    "project_id": "hpnetwork-1bf11",
+    "firebase_url": "https://hpnetwork-1bf11-default-rtdb.europe-west1.firebasedatabase.app",
+
+    "storage_bucket": "hpnetwork-1bf11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277094612745:android:221d13f84ed1045b64ddd8",
+        "android_client_info": {
+          "package_name": "com.maayan.hp_network"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277094612745-0gu1h2itfbl6vcfgda6su91h7ljivoan.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqSbefcdCFj-bcyi500cFvptEkPnptxEI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277094612745-0gu1h2itfbl6vcfgda6su91h7ljivoan.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
