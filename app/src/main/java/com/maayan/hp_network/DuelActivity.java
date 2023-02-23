@@ -3,17 +3,18 @@ package com.maayan.hp_network;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,7 +22,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.List;
 import java.util.Random;
 
@@ -29,8 +29,10 @@ public class DuelActivity extends AppCompatActivity {
 
     private TextView red_player;
     private TextView blue_player;
+    private ImageView card_explained;
     private int redChoseNum = 0;
     private int blueChoseNum = 0;
+    private ExtendedFloatingActionButton explain_BTN;
     private boolean first_generated = true;
     private boolean resetChose = true;
     private boolean generatedNewBlue = false;
@@ -73,7 +75,7 @@ public class DuelActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                if (snapshot.child("showCards").getValue(Boolean.class)) {
+                if (snapshot.child("showCards").getValue(Boolean.class) != null && snapshot.child("showCards").getValue(Boolean.class)) {
 
                     //if 2 players has made their chose - check which card is stronger:
                     //check if both from the same type:
@@ -127,8 +129,18 @@ public class DuelActivity extends AppCompatActivity {
                     FirebaseDatabase.getInstance().getReference("GameManager").child("duels").child(match_id).child("blueChoseNum").setValue(-1);
                     FirebaseDatabase.getInstance().getReference("GameManager").child("duels").child(match_id).child("redChoseNum").setValue(-1);
 
-                    red_chosen_card.setImageResource(R.drawable.card_back);
-                    blue_chosen_card.setImageResource(R.drawable.card_back);
+
+                    Handler handler = new Handler();
+
+                    handler.postDelayed(new Runnable() {
+                        public void run() {
+                            red_chosen_card.animate().rotationYBy(180);
+                            red_chosen_card.setImageResource(R.drawable.card_back);
+                            blue_chosen_card.animate().rotationYBy(180);
+                            blue_chosen_card.setImageResource(R.drawable.card_back);
+                        }
+                    }, 1500);   //1 second
+
 
                     FirebaseDatabase.getInstance().getReference("GameManager").child("duels").child(match_id).child("red_chose_card").setValue(false);
                     FirebaseDatabase.getInstance().getReference("GameManager").child("duels").child(match_id).child("blue_chose_card").setValue(false);
@@ -185,14 +197,24 @@ public class DuelActivity extends AppCompatActivity {
                         spell1.setLevel(red4cards[snapshot.child("redChoseNum").getValue(Integer.class)][2]);
                         spell1.setStrength(red4cards[snapshot.child("redChoseNum").getValue(Integer.class)][3]);
 
-                        red_chosen_card.setImageResource(spell1.getImgRes());
+
+                        red_chosen_card.setRotationY(180);
+                        red_chosen_card.animate().rotationYBy(180).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                red_chosen_card.setImageResource(spell1.getImgRes());
+                            }
+                        });
+
+
+                        //   red_chosen_card.setImageResource(spell1.getImgRes());
                         FirebaseDatabase.getInstance().getReference("GameManager").child("duels").child(match_id).child("red_chose_card").setValue(true);
 
                         playerSubmitted = true;
 
                         generateNewCard("user1", snapshot);
 
-
+                        FirebaseDatabase.getInstance().getReference("GameManager").child("duels").child(match_id).child("redChoseNum").setValue(-1);//
                         //write the selection to the firebase
                         FirebaseDatabase.getInstance().getReference("GameManager").child("duels").child(match_id).child("spell1").setValue(spell1);
                         //write to DB that red player has made a choice:
@@ -203,7 +225,16 @@ public class DuelActivity extends AppCompatActivity {
                     if (snapshot.child("red_chose_card").getValue(Boolean.class) == true && snapshot.child("blue_chose_card").getValue(Boolean.class) == true) {
                         //may expose the selected blue card:
                         FirebaseDatabase.getInstance().getReference("GameManager").child("duels").child(match_id).child("showCards").setValue(true);
-                        blue_chosen_card.setImageResource(snapshot.child("spell2").child("imgRes").getValue(Integer.class));
+                        if (snapshot.child("spell2").child("imgRes").getValue(Integer.class) != 0) {//new
+                            blue_chosen_card.setRotationY(0);
+                            blue_chosen_card.animate().rotationYBy(0).withEndAction(new Runnable() {
+                                @Override
+                                public void run() {
+                                    blue_chosen_card.setImageResource(snapshot.child("spell2").child("imgRes").getValue(Integer.class));
+                                }
+                            });
+
+                        }
                     }
 
 
@@ -224,14 +255,23 @@ public class DuelActivity extends AppCompatActivity {
                         spell2.setLevel(blue4cards[snapshot.child("blueChoseNum").getValue(Integer.class)][2]);
                         spell2.setStrength(blue4cards[snapshot.child("blueChoseNum").getValue(Integer.class)][3]);
 
-                        blue_chosen_card.setImageResource(spell2.getImgRes());
+                        blue_chosen_card.setRotationY(180);
+                        blue_chosen_card.animate().rotationYBy(180).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                blue_chosen_card.setImageResource(spell2.getImgRes());
+                            }
+                        });
+
+
                         FirebaseDatabase.getInstance().getReference("GameManager").child("duels").child(match_id).child("blue_chose_card").setValue(true);
 
                         opponentSubmitted = true;
-                        //if(generatedNewBlue == false){
+
                         generateNewCard("user2", snapshot);
-                        //  generatedNewBlue = true;
-                        // }
+
+                        FirebaseDatabase.getInstance().getReference("GameManager").child("duels").child(match_id).child("blueChoseNum").setValue(-1);//
+
                         //write the selection to the firebase
                         FirebaseDatabase.getInstance().getReference("GameManager").child("duels").child(match_id).child("spell2").setValue(spell2);
                         //write to DB that blue player has made a choice:
@@ -244,7 +284,15 @@ public class DuelActivity extends AppCompatActivity {
 
                         //may expose the selected red card:
                         FirebaseDatabase.getInstance().getReference("GameManager").child("duels").child(match_id).child("showCards").setValue(true);
-                        red_chosen_card.setImageResource(snapshot.child("spell1").child("imgRes").getValue(Integer.class));
+                        if (snapshot.child("spell1").child("imgRes").getValue(Integer.class) != 0) {
+                            red_chosen_card.setRotationY(0);//NNNN
+                            red_chosen_card.animate().rotationYBy(0).withEndAction(new Runnable() {
+                                @Override
+                                public void run() {
+                                    red_chosen_card.setImageResource(snapshot.child("spell1").child("imgRes").getValue(Integer.class));
+                                }
+                            });
+                        }
                     }
 
 
@@ -354,6 +402,10 @@ public class DuelActivity extends AppCompatActivity {
 
     private void findViews() {
 
+        card_explained = findViewById(R.id.card_explained_IMG);
+        card_explained.setVisibility(View.INVISIBLE);
+        explain_BTN = findViewById(R.id.explain_BTN);
+
         red_player_cards = new ShapeableImageView[]{findViewById(R.id.Red_Card1), findViewById(R.id.Red_Card2), findViewById(R.id.Red_Card3), findViewById(R.id.Red_Card4)};
         blue_player_cards = new ShapeableImageView[]{findViewById(R.id.Blue_Card1), findViewById(R.id.Blue_Card2), findViewById(R.id.Blue_Card3), findViewById(R.id.Blue_Card4)};
 
@@ -368,6 +420,17 @@ public class DuelActivity extends AppCompatActivity {
 
     private void initialization() {
 
+
+        explain_BTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (card_explained.getVisibility() == View.INVISIBLE) {
+                    card_explained.setVisibility(View.VISIBLE);
+                } else {
+                    card_explained.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 

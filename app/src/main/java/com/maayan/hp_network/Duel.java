@@ -51,9 +51,9 @@ public class Duel {
         //4 random spells
         for (int i = 0; i < 4; i++) {
             this.defensiveSpellsU1.put(String.valueOf(i), Spells.getdefensiveSpells()[rnd.nextInt(6)]);
-            this.offensiveSpellsU1.put(String.valueOf(i), Spells.getdefensiveSpells()[rnd.nextInt(6)]);
+            this.offensiveSpellsU1.put(String.valueOf(i), Spells.getOffensiveSpells()[rnd.nextInt(6)]);
             this.defensiveSpellsU2.put(String.valueOf(i), Spells.getdefensiveSpells()[rnd.nextInt(6)]);
-            this.offensiveSpellsU2.put(String.valueOf(i), Spells.getdefensiveSpells()[rnd.nextInt(6)]);
+            this.offensiveSpellsU2.put(String.valueOf(i), Spells.getOffensiveSpells()[rnd.nextInt(6)]);
         }
 
 

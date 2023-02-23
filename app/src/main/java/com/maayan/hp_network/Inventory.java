@@ -2,11 +2,14 @@ package com.maayan.hp_network;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +26,7 @@ public class Inventory extends AppCompatActivity {
     private String house;
     private String username;
     private int userScore;
+    private Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,8 @@ public class Inventory extends AppCompatActivity {
 
 
         findViews();
+        inizialization();
+
         String userNum = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
         FirebaseDatabase.getInstance().getReference("GameManager").child("users").child(userNum).addValueEventListener(new ValueEventListener() {
             @Override
@@ -71,7 +77,17 @@ public class Inventory extends AppCompatActivity {
 
     }
 
+    private void inizialization() {
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
     private void findViews() {
+        backButton = findViewById(R.id.BTN_back);
         background = findViewById(R.id.lay_Background);
         house_q = findViewById(R.id.house_q);
         name = findViewById(R.id.player_LBL_name);
