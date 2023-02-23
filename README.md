@@ -20,7 +20,7 @@ for another apponent. When user selects one of the "rooms" - it will start an on
 <img src="https://user-images.githubusercontent.com/95546841/220475492-fc5d9c87-f028-4189-b139-0a15eccfb846.jpeg" width="300">
 
 ##### COMMON ROOM PAGE:
-<img src="https://user-images.githubusercontent.com/95546841/220475819-d419d90f-bffc-4019-b224-5390d853eeae.jpeg" width="300">
+<img src="https://user-images.githubusercontent.com/95546841/220879872-449d9b15-a716-467e-833f-38cb5aa817d4.jpeg" width="300">
 
 ##### HIGHSCORES PAGE:
 <img src="https://user-images.githubusercontent.com/95546841/220476046-31fc04f5-a825-4ae2-acd1-395b82f05341.jpeg" width="300">
@@ -39,7 +39,7 @@ https://user-images.githubusercontent.com/95546841/220474824-f03c0a9c-227e-423a-
 ##### DUEL DEMONSTRATION:<br />
 
 
-https://user-images.githubusercontent.com/95546841/220477822-3d487b0a-7caa-41cc-95ba-7959e57751e0.mp4
+https://user-images.githubusercontent.com/95546841/220880357-aaea344c-0c94-4a80-b6ae-71d3b11697f6.mp4
 
 
 
